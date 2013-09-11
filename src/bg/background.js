@@ -1,21 +1,16 @@
-// if you checked "fancy-settings" in extensionizr.com, uncomment this lines
 
-// var settings = new Store("settings", {
-//     "sample_setting": "This is how you use Store.js to remember values"
-// });
-
-
-//example of using a message handler from the inject scripts
+// Catch messagse from the Injected JS
 chrome.extension.onMessage.addListener(
   function(request, sender, sendResponse) {
   	chrome.pageAction.show(sender.tab.id);
 
+    // draw a number on the icon
   	setPageActionIcon(sender.tab.id);
 
     sendResponse();
 });
 
-
+// Attempting to create an icon that can show numbers in the icon.
 function setPageActionIcon(tabId) {
     var canvas = document.createElement('canvas');
     var img = document.createElement('img');
